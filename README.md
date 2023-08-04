@@ -13,7 +13,7 @@ Bitmancer partially uses [winim](https://github.com/khchen/winim) for its types.
 ## Installation
 Bitmancer is not yet part of the nimble repository. For the timebeing, you can install it from Github by simply running:  
 
-`nimble install https://github.com/zimawhit3/Bitmancer`
+`nimble install https://github.com/nariod/Bitmancer`
 
 ## Compiling
 MingW and Nim will introduce dependencies on MSVCRT and Kernel32, as well as global variables used by Nim's System module. If you want to avoid these for position independent code, use the provided nim.cfg.
