@@ -85,7 +85,7 @@ proc getCrtBase(): NtResult[ModuleHandle] =
     let crtBase =
         if not MODULE_LOADED(MsvcrtHash, LoadOrder):
             ## if not loaded, load it - just using loadlibrary for now
-            var msvcrt {.stackStringA.} = "msvcrt.dll"
+            var msvcrt = "msvcrt.dll"
             let 
                 k32             = ? KERNEL32_BASE()
                 loadLibrary     = ? getProcAddress(k32, LoadLibraryHash)

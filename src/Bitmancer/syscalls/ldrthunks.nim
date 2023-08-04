@@ -135,7 +135,7 @@ func getLdrThunks(imageBase: ModuleHandle): NtResult[PLdrpThunkSignatures] =
 
 proc ldrThunkOpenSection(sHandle: var HANDLE, ssn: WORD): NtResult[void] =
     genSyscall(NtOpenSection)
-    var knownDlls {.stackStringW.}  = "\\KnownDlls\\ntdll.dll"
+    var knownDlls = "\\KnownDlls\\ntdll.dll"
     
     ## Initialize Object Attributes
     var

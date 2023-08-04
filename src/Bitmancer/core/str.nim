@@ -281,12 +281,12 @@ func copyToBuffer*(us: var UNICODE_STRING, ws: PWSTR, wsLen: USHORT) =
 ## Extensions / Prefixes
 ##------------------------------------
 func addDrivePrefixU*(us: var UNICODE_STRING) =
-    var drivePrefix {.stackStringW.} = "\\??\\"
+    var drivePrefix = "\\??\\"
     let prefix = cast[PWSTR](addr drivePrefix[0])
     us.add prefix
 
 func addSystem32DirectoryU*(us: var UNICODE_STRING) =
-    var system32 {.stackStringW.} = "\\System32\\"
+    var system32 = "\\System32\\"
     let 
         cwindows    = cast[PWSTR](addr ntKUserSharedData().NtSystemRoot[0])
         sys32       = cast[PWSTR](addr system32[0])
@@ -294,6 +294,6 @@ func addSystem32DirectoryU*(us: var UNICODE_STRING) =
     us.add sys32
 
 func addDLLExtensionA*(f: var cstring, max: SIZE_T = MAX_PATH) =
-    var dllExt {.stackStringA.} = ".dll"
+    var dllExt = ".dll"
     let dllExtA = cast[cstring](addr dllExt[0])
     add(f, dllExtA, max)
